@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  z-index: 999999;
+  background-color: rgb(36, 65, 65);
+  color: white;
+  font-family: "gilroy";
+}
+#links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+#links a {
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px solid transparent;
+}
+#links a:hover {
+  border-color: white;
+  transition: all 0.4s;
+}
+#login {
+  border: 1px solid white;
+  border-bottom: 1px solid white !important;
+  padding: 5px 40px;
+  border-radius: 5px;
+}
+#sj-main {
+  position: relative;
+  width: 100%;
+  background-color: #d1d9e2;
+}
+#main {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#main #text {
+  width: 80%;
+  height: 70%;
+  margin-top: 40px;
+  resize: none;
+  padding: 20px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 10px black;
+  border-radius: 10px;
+}
+#btns {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  color: white;
+}
+#main1 {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+#main1 > img {
+  width: 50vw;
+  right: 0;
+  bottom: 0;
+}
+#main1 #content {
+  font-size: 25px;
+  padding: 20px;
+  text-align: center;
+  color: #014c82;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#chaticon {
+  height: 100px;
+  padding: 10px;
+  border: 2px solid transparent;
+}
+#chaticon:hover {
+  transition: all 1s;
+  border-radius: 50%;
+  border: 2px solid #6b72ec;
+  cursor: pointer;
+}
+#main2 {
+  font-size: 25px;
+  text-align: center;
+  padding: 50px;
+  background-color: #c4cbdb;
+}
+footer {
+  background: linear-gradient(
+    to right,
+    #730112,
+    #c12d6c,
+    #bf6957,
+    #c12d6c,
+    #730112
+  );
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 5px;
+  font-family: "frock thin";
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+  #main1 {
+    flex-direction: column;
+  }
+  #main1 > img {
+    width: 100%;
+  }
+}

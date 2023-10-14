@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Samarth Jain" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+  </head>
+
+  <body>
+    <section id="profilepage" class="vh-100" style="background-color: #9de2ff">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-md-9 col-lg-7 col-xl-5">
+            <div class="card" style="border-radius: 15px">
+              <div class="card-body p-4">
+                <div class="d-flex text-black">
+                  <div class="flex-shrink-0">
+                    <img src="https://i.pinimg.com/originals/f3/d1/ed/f3d1edf10d63c40e1fa06364176fa502.png" alt="Generic placeholder image" class="img-fluid" style="width: 180px; border-radius: 10px" />
+                  </div>
+
+                  <div class="flex-grow-1 ms-3">
+                    <h5 class="mb-1"><%= user.username %></h5>
+                    <p class="mb-2 pb-1" style="color: #2b2a2a"> <%= user.email %> </p>
+
+                    <div class="d-flex justify-content-between rounded-3 p-2 mb-2" style="background-color: #efefef" >
+                      <div class="text-center">
+                        <p class="small text-muted mb-1">Conversions</p>
+                        <p class="mb-0">12</p>
+                      </div>
+
+                      <div class="text-center">
+                        <p class="small text-muted mb-1">Chats</p>
+                        <p class="mb-0">102</p>
+                      </div>
+
+                      <div class="text-center">
+                        <p class="small text-muted mb-1">Downloads</p>
+                        <p class="mb-0">6</p>
+                      </div>
+                    </div>
+
+                    <div class="d-flex pt-1">
+                      <button id="backtochat" type="button" class="btn btn-outline-primary me-1 flex-grow-1" > Chat </button>
+                      <button id="profileback" type="button" class="btn btn-primary flex-grow-1" > Back </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="sj-main">
+      <nav>
+        <div id="logo">TTS</div>
+        <div id="links">
+          <a href="Home">Home</a><a href="#services">Service</a >
+          <a href="About">About</a><a href="#contact">Contact Us</a>
+
+          <div class="dropdown">
+            <button id="profile" class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+              Hello <%= user.username %>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li> <a id="profilebtn" class="dropdown-item" href="#">My profile</a> </li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div id="main">
+        <textarea name="/text" id="text" placeholder="Enter you text here to convert into voice..." ></textarea>
+        <div id="btns" class="p-5 w-100">
+          <a href="../sj.wav" class="btn btn-success w-25" download>Download</a>
+
+          <div id="playpausebtn" class="btn btn-danger px-4">
+            <i class="ri-play-line"></i>
+          </div>
+
+          <button id="convert" class="btn btn-secondary w-25">Convert</button>
+        </div>
+      </div>
+
+      <div id="main1">
+        <div id="chatbox">
+          <div id="overlay">
+            <button id="startchat" class="<%= user.username %> btn btn-primary px-5" > Start Chat </button>
+          </div>
+
+          <div id="msgs"> </div>
+          <textarea name="msg" id="msgbox" placeholder="Type your text here..." ></textarea>
+          <button id="sendbtn" class="btn btn-primary px-5">Send</button>
+        </div>
+        <img src="https://www.pngitem.com/pimgs/m/650-6507348_mobile-app-group-chat-app-ui-design-hd.png" alt="" />
+      </div>
+
+      <footer>
+        <i class="ri-copyright-line"></i> Copyright 2022 All rights reserved
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer" ></script>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous" ></script>
+    <script src="/javascripts/script.js"></script>
+    <script src="/javascripts/home.js"></script>
+  </body>
+</html>
